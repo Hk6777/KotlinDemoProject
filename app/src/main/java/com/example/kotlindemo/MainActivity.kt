@@ -1,5 +1,6 @@
 package com.example.kotlindemo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -14,44 +15,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val diceroll: Button = findViewById(R.id.button2)
+        val btnLogin: Button = findViewById(R.id.btnLogin)
 
-//        println("your ${myFirstDis.num} sided dice rolled ${myFirstDis.roll()}")
-
-        val btn: Button = findViewById(R.id.button)
-        var txt1: TextView = findViewById(R.id.textView2)
-        var txt4: TextView = findViewById(R.id.textView4)
-
-        btn.setOnClickListener {
-            val myFirstDis = Dice(6)
-            val rollVlaue = myFirstDis.roll()
-            txt1.text = rollVlaue.toString()
-
-            Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
-            val luckyWinner = 4
-            val img1: ImageView = findViewById(R.id.imageView2)
-
-
-            val drawableResource = when (rollVlaue){
-                luckyWinner -> (R.drawable.dice_4)
-                1 -> (R.drawable.dice_1)
-                2 -> (R.drawable.dice_2)
-                3 -> (R.drawable.dice_3)
-                5 -> (R.drawable.dice_5)
-                else -> (R.drawable.dice_6)
-
-            }
-            img1.setImageResource(drawableResource)
-
+        diceroll.setOnClickListener{
+            val i = Intent(this, DiceRollActivity::class.java)
+            startActivity(i)
         }
+
+        btnLogin.setOnClickListener{
+            val i = Intent(this, LoginActivity::class.java)
+            startActivity(i)
+        }
+
+        val subclass: Button = findViewById(R.id.button3)
 
 
     }
 
-    class Dice(val num: Int) {
-
-        fun roll(): Int {
-            return (1..num).random()
-        }
-    }
 
 }
