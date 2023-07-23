@@ -1,151 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
+    android:layout_gravity="center"
+    android:gravity="center"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@drawable/mobile_login_rafiki" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:textColor="@color/black"
-        android:textSize="35dp"
-        android:textStyle="bold" />
-
     <LinearLayout
+        android:id="@+id/llLoader"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="13dp"
-            android:src="@drawable/baseline_alternate_email_24"
-            app:tint="@color/text_color" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/text_color"
-            android:hint="Username"
-            android:inputType="text"
-            android:text="Username"
-            android:textColor="@color/text_color" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="13dp"
-            android:src="@drawable/outline_lock_24"
-            app:tint="@color/text_color" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/text_color"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:text="Password"
-            android:textColor="@color/text_color" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="20dp"
-        android:gravity="end"
-        android:text="Forgot Password?"
-        android:textColor="@color/blue_800"
-        android:textStyle="bold" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button_drawable"
-        android:backgroundTint="@color/blue_800"
-        android:text="Login" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OR"
-            android:textColor="@color/text_color" />
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button_drawable"
-        android:backgroundTint="@color/gray_500"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/search"
-            android:padding="13dp"
-            android:layout_marginLeft="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Login with Goole"
-            android:textStyle="bold"
-            android:textColor="@color/text_color"
-            android:gravity="center"></TextView>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
+        android:layout_height="match_parent"
         android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New to Logistic"
-            android:textColor="@color/text_color"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  Register"
-            android:textColor="@color/blue_800"
-            android:textStyle="bold"/>
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/transperent_shape"
+            android:gravity="center">
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:lottie_rawRes="@raw/loader"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
+        </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/mobile_login_rafiki" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="13dp"
+                android:src="@drawable/baseline_alternate_email_24"
+                app:tint="@color/text_color" />
+
+            <EditText
+                android:id="@+id/txtInputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/text_color"
+                android:hint="Username"
+                android:inputType="text"
+                android:textColor="@color/text_color" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="13dp"
+                android:src="@drawable/outline_lock_24"
+                app:tint="@color/text_color" />
+
+            <EditText
+                android:id="@+id/txtPass"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/text_color"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/text_color" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
+            android:gravity="end"
+            android:text="Forgot Password?"
+            android:textColor="@color/blue_800"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button_drawable"
+            android:backgroundTint="@color/blue_800"
+            android:text="Login" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:textColor="@color/text_color" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button_drawable"
+            android:backgroundTint="@color/gray_500"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:padding="13dp"
+                android:src="@drawable/search" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Login with Goole"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"></TextView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New to Logistic"
+                android:textColor="@color/text_color" />
+
+            <TextView
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Register"
+                android:textColor="@color/blue_800"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
