@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.kotlindemo.Google.MapActivity
 import com.example.kotlindemo.Retrofit.SessionManager
 import com.example.kotlindemo.databinding.ActivityLoginBinding
 import com.example.kotlindemo.databinding.ActivityMainBinding
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             val i = Intent(this, LoginActivity::class.java)
+            startActivity(i)
+        }
+        binding.btnmap.setOnClickListener {
+            val i = Intent(this, MapActivity::class.java)
             startActivity(i)
         }
 
