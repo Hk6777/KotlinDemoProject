@@ -25,6 +25,8 @@
     <string name="read">Read</string>
     <string name="name_n_n">Name\n\n</string>
     <string name="age_n_n">Age\n\n</string>
+    <string name="pick_date_and_time">Pick Date and TIme</string>
+    <string name="tutorials_point">Tutorials Point</string>
 
 
 </resources>

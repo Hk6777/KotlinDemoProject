@@ -30,6 +30,7 @@
         <activity android:name=".Google.MapActivity" />
         <activity android:name=".Database.SqliteActivity" />
         <activity android:name=".Classes.AllClassesActivity" />
+        <activity android:name=".Classes.Activity.DatePicker" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

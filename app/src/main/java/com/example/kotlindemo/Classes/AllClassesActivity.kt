@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kotlindemo.Classes.Activity.DatePicker
 import com.example.kotlindemo.Classes.Adapter.CustomAdapter
-import com.example.kotlindemo.MainActivity
 import com.example.kotlindemo.databinding.ActivityAllcalssisBinding
 
 class AllClassesActivity : AppCompatActivity() {
@@ -37,10 +37,9 @@ class AllClassesActivity : AppCompatActivity() {
 
 
         adapter.setOnItemClickListener {
-            val number  = readLine()!!.toInt()
+            val number = 0
             when(number){
-                0 -> {startActivity(Intent(this, MainActivity::class.java))}
-                1 -> {startActivity(Intent(this, MainActivity::class.java))}
+                0 -> {startActivity(Intent(this, DatePicker::class.java))}
                 else->{}
             }
 
@@ -53,10 +52,6 @@ class AllClassesActivity : AppCompatActivity() {
     }
 
     private fun addData() {
-        classList.add("dog")
-        classList.add("cat")
-        classList.add("owl")
-        classList.add("cheetah")
-        classList.add("raccoon")
+        classList.add("Date Picker")
     }
 }
