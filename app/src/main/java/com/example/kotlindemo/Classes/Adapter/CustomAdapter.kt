@@ -3,12 +3,12 @@ package com.example.kotlindemo.Classes.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlindemo.Classes.Model.ItemsViewModel
 import com.example.kotlindemo.databinding.CardViewDesignBinding
 
-class CustomAdapter(private val mList: List<ItemsViewModel>) :
+class CustomAdapter(private val mList: ArrayList<String>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
+    private var listener: ((String) -> Unit)? = null
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflates the card_view_design view
@@ -20,13 +20,23 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val ItemsViewModel = mList[position]
 
         // sets the image to the imageview from our itemHolder class
-        holder.binding.imageview.setImageResource(ItemsViewModel.image)
+//        holder.binding.imageview.setImageResource(ItemsViewModel.image)
 
         // sets the text to the textview from our itemHolder class
-        holder.binding.textView.text = ItemsViewModel.text
+        holder.binding.textView.text = mList.get(position)
+
+        holder.binding.cvClick.setOnClickListener {
+            listener?.invoke(mList.get(position))
+        }
+
+    }
+
+
+    fun setOnItemClickListener(f: (String) -> Unit) {
+        listener = f
+
     }
 
 
