@@ -3,16 +3,10 @@ package com.example.kotlindemo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import com.example.kotlindemo.Classes.AllClassesActivity
+import com.example.kotlindemo.Database.SqliteActivity
 import com.example.kotlindemo.Google.MapActivity
-import com.example.kotlindemo.Retrofit.SessionManager
-import com.example.kotlindemo.databinding.ActivityLoginBinding
 import com.example.kotlindemo.databinding.ActivityMainBinding
-import com.example.kotlindemo.model.LoginResponse
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +29,14 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnmap.setOnClickListener {
             val i = Intent(this, MapActivity::class.java)
+            startActivity(i)
+        }
+        binding.btnSqlite.setOnClickListener {
+            val i = Intent(this, SqliteActivity::class.java)
+            startActivity(i)
+        }
+        binding.btnClasses.setOnClickListener {
+            val i = Intent(this, AllClassesActivity::class.java)
             startActivity(i)
         }
 
