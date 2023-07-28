@@ -28,7 +28,7 @@ class CustomAdapter(private val mList: ArrayList<String>) :
         holder.binding.textView.text = mList.get(position)
 
         holder.binding.cvClick.setOnClickListener {
-            listener?.invoke(mList.get(position))
+            listener?.invoke(position.toString())
         }
 
     }

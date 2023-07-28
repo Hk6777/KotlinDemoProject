@@ -9,6 +9,7 @@ import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlindemo.databinding.ActivityDatepickerBinding
 import android.text.format.DateFormat
+import java.sql.Timestamp
 import java.util.Calendar
 
 class DatePicker : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
@@ -33,6 +34,11 @@ class DatePicker : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         val view = binding.root
         setContentView(view)
 
+//set current time
+        val currentTimeMillis = System.currentTimeMillis()
+        val timeStamp = Timestamp(currentTimeMillis)
+
+        binding.tvTime.setText("$timeStamp")
 
         binding.btnPick.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
@@ -56,8 +62,7 @@ class DatePicker : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         hour = calendar.get(Calendar.HOUR)
         minute = calendar.get(Calendar.MINUTE)
         val timePickerDialog = TimePickerDialog(
-            this@DatePicker, this@DatePicker, hour, minute,
-            DateFormat.is24HourFormat(this)
+            this@DatePicker, this@DatePicker, hour, minute, DateFormat.is24HourFormat(this)
         )
         timePickerDialog.show()
     }
@@ -66,6 +71,7 @@ class DatePicker : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         myHour = hourOfDay
         myMinute = minute
-        binding.textView.text = "Year: $myYear \n Month: $myMonth \n Day: $myDay \n Hour: $myHour \n Minute: $myMinute"
+        binding.textView.text =
+            "Year: $myYear \n Month: $myMonth \n Day: $myDay \n Hour: $myHour \n Minute: $myMinute"
     }
 }

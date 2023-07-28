@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlindemo.Classes.Activity.DatePicker
+import com.example.kotlindemo.Classes.Activity.NavigationActivity
 import com.example.kotlindemo.Classes.Adapter.CustomAdapter
 import com.example.kotlindemo.databinding.ActivityAllcalssisBinding
 
@@ -37,9 +38,10 @@ class AllClassesActivity : AppCompatActivity() {
 
 
         adapter.setOnItemClickListener {
-            val number = 0
-            when(number){
-                0 -> {startActivity(Intent(this, DatePicker::class.java))}
+            println(it)
+            when(it){
+                "0" -> {startActivity(Intent(this, DatePicker::class.java))}
+                "1" -> {startActivity(Intent(this, NavigationActivity::class.java))}
                 else->{}
             }
 
@@ -53,5 +55,6 @@ class AllClassesActivity : AppCompatActivity() {
 
     private fun addData() {
         classList.add("Date Picker")
+        classList.add("Navigation Activity")
     }
 }
