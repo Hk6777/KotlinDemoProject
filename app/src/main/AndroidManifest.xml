@@ -32,6 +32,7 @@
         <activity android:name=".Classes.AllClassesActivity" />
         <activity android:name=".Classes.Activity.DatePicker" />
         <activity android:name=".Classes.Activity.NavigationActivity" />
+        <activity android:name=".Classes.Activity.BottomNavigationBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
