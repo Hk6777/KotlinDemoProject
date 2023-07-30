@@ -38,6 +38,11 @@
     <string name="about_us">About Us</string>
     <string name="android_knowledge">Android Knowledge</string>
     <string name="time">Time</string>
+    <string name="press_the_back_button_of_your_phone">Press The Back Button of Your Phone.</string>
+    <string name="coustom_dialog">Coustom Dialog</string>
+    <string name="are_you_want_to_sure_to_exit">Are you want to sure to Exit!</string>
+    <string name="cancle">Cancle</string>
+    <string name="ok">ok</string>
 
 
 </resources>
