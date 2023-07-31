@@ -8,6 +8,7 @@ import com.example.kotlindemo.Classes.Activity.BottomNavigationBar
 import com.example.kotlindemo.Classes.Activity.DatePicker
 import com.example.kotlindemo.Classes.Activity.DialogBoxActivity
 import com.example.kotlindemo.Classes.Activity.NavigationActivity
+import com.example.kotlindemo.Classes.Activity.NotificationActivity
 import com.example.kotlindemo.Classes.Activity.TabViewActivity
 import com.example.kotlindemo.Classes.Adapter.CustomAdapter
 import com.example.kotlindemo.databinding.ActivityAllcalssisBinding
@@ -48,6 +49,7 @@ class AllClassesActivity : AppCompatActivity() {
                 "2" -> {startActivity(Intent(this, BottomNavigationBar::class.java))}
                 "3" -> {startActivity(Intent(this, DialogBoxActivity::class.java))}
                 "4" -> {startActivity(Intent(this, TabViewActivity::class.java))}
+                "5" -> {startActivity(Intent(this, NotificationActivity::class.java))}
                 else->{}
             }
 
@@ -65,5 +67,6 @@ class AllClassesActivity : AppCompatActivity() {
         classList.add("Bottom Navigation Bar")
         classList.add("Dialog Box")
         classList.add("TabView")
+        classList.add("Notification")
     }
 }
