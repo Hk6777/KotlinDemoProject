@@ -38,6 +38,7 @@
         <activity android:name=".Classes.Activity.DialogBoxActivity" />
         <activity android:name=".Classes.Activity.TabViewActivity" />
         <activity android:name=".Classes.Activity.NotificationActivity" />
+        <activity android:name=".SampleApp.BlogappwithFirebase.Blog_MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
