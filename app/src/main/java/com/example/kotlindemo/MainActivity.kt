@@ -10,6 +10,8 @@ import androidx.core.content.ContextCompat
 import com.example.kotlindemo.Classes.AllClassesActivity
 import com.example.kotlindemo.Database.SqliteActivity
 import com.example.kotlindemo.Google.MapActivity
+import com.example.kotlindemo.SampleApp.BlogappwithFirebase.Blog_MainActivity
+import com.example.kotlindemo.SampleApp.ProjectMainActivity
 import com.example.kotlindemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnClasses.setOnClickListener {
             val i = Intent(this, AllClassesActivity::class.java)
+            startActivity(i)
+        }
+        binding.btnproject.setOnClickListener {
+            val i = Intent(this, ProjectMainActivity::class.java)
             startActivity(i)
         }
 
