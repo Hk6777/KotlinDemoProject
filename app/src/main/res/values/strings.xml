@@ -51,6 +51,7 @@
     <string name="enter_detail">Enter Detail</string>
     <string name="enter_title">Enter Title</string>
     <string name="add_data_to_firebase">Add Data to Firebase</string>
+    <string name="dommy_text_for_title">dommy text for title</string>
 
 
 </resources>

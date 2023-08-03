@@ -48,6 +48,24 @@
         android:hint="@string/enter_auther_name"
         android:inputType="textPostalAddress" />
 
+    <Button
+        android:id="@+id/isBtnSlectImage"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/gray_500"
+        android:textColor="@color/black"
+        android:text="Image"
+        android:textAllCaps="false" />
+
+    <ImageView
+        android:id="@+id/idivuploadimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <!--Button for adding data to Firebase-->
     <Button
         android:id="@+id/idBtnSendData"
