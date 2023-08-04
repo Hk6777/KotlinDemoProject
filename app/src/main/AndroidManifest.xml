@@ -40,6 +40,7 @@
         <activity android:name=".Classes.Activity.NotificationActivity" />
         <activity android:name=".SampleApp.BlogappwithFirebase.Blog_MainActivity" />
         <activity android:name=".SampleApp.BlogappwithFirebase.AddBlogActivity" />
+        <activity android:name=".SampleApp.BlogappwithFirebase.BlogDetailActivity" />
         <activity android:name=".SampleApp.ProjectMainActivity" />
         <activity
             android:name=".MainActivity"
