@@ -3,6 +3,7 @@ package com.example.kotlindemo.Classes
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.graphics.vector.DefaultTintBlendMode
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlindemo.Classes.Activity.BottomNavigationBar
 import com.example.kotlindemo.Classes.Activity.DatePicker
@@ -11,6 +12,7 @@ import com.example.kotlindemo.Classes.Activity.NavigationActivity
 import com.example.kotlindemo.Classes.Activity.NotificationActivity
 import com.example.kotlindemo.Classes.Activity.TabViewActivity
 import com.example.kotlindemo.Classes.Adapter.CustomAdapter
+import com.example.kotlindemo.JetPackComposed.Demo
 import com.example.kotlindemo.databinding.ActivityAllcalssisBinding
 
 class AllClassesActivity : AppCompatActivity() {
@@ -50,6 +52,7 @@ class AllClassesActivity : AppCompatActivity() {
                 "3" -> {startActivity(Intent(this, DialogBoxActivity::class.java))}
                 "4" -> {startActivity(Intent(this, TabViewActivity::class.java))}
                 "5" -> {startActivity(Intent(this, NotificationActivity::class.java))}
+                "6" -> {startActivity(Intent(this, Demo::class.java))}
                 else->{}
             }
 
@@ -68,5 +71,6 @@ class AllClassesActivity : AppCompatActivity() {
         classList.add("Dialog Box")
         classList.add("TabView")
         classList.add("Notification")
+        classList.add("JetPack Composed")
     }
 }

@@ -30,6 +30,7 @@ class DialogBoxActivity : AppCompatActivity() {
 
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         // Create the object of AlertDialog Builder class
         val builder = AlertDialog.Builder(this)
