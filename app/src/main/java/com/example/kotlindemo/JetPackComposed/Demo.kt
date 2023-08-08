@@ -3,6 +3,7 @@ package com.example.kotlindemo.JetPackComposed
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -22,7 +23,10 @@ class Demo : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Column {
+                        Greeting("Kaushal")
+                        Greeting("Harshil")
+                    }
                 }
             }
         }
@@ -33,7 +37,9 @@ class Demo : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
+
+
     )
 }
 
@@ -41,6 +47,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     KotlinDemoTheme {
-        Greeting("Android")
+        Column {
+            Greeting("Kaushal")
+            Greeting("Harshil")
+        }
+
     }
 }
