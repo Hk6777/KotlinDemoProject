@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.unit.dp
+import com.example.kotlindemo.JetPackComposed.ui.theme.md_theme_light_errorContainer
 import com.example.kotlindemo.JetPackComposed.ui.theme.md_theme_light_primary
 
 
@@ -30,40 +31,55 @@ fun CityList(cities: List<String>) {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        Text(
-            text = "City List Example",
-            style = MaterialTheme.typography.titleSmall,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
 
-        val maxWidth = 315.dp // Set the maximum width for each row
-        val spacing = 8.dp // Set the spacing between items
+        TextView(text = "City List Example")
+        CityListView(cities, "1")
+        TextView(text = "Sample 1")
+        CityListView(cities, "2")
+    }
+}
 
-        var currentRow = mutableListOf<String>()
-        var currentWidth = 0.dp
+@Composable
+fun CityListView(cities: List<String>, Status: String) {
 
-        cities.forEach { city ->
-            val cityWidth = (city.length * 12).dp // Adjust the width based on your content
+    val maxWidth = 315.dp // Set the maximum width for each row
+    val spacing = 8.dp // Set the spacing between items
 
-            if (currentWidth + cityWidth + spacing <= maxWidth) {
-                currentRow.add(city)
-                currentWidth += cityWidth + spacing
-            } else {
-                CityRow(currentRow)
-                currentRow = mutableListOf(city)
-                currentWidth = cityWidth + spacing
-            }
-        }
+    var currentRow = mutableListOf<String>()
+    var currentWidth = 0.dp
 
-        if (currentRow.isNotEmpty()) {
-            CityRow(currentRow)
+    cities.forEach { city ->
+        val cityWidth = (city.length * 12).dp // Adjust the width based on your content
+
+        if (currentWidth + cityWidth + spacing <= maxWidth) {
+            currentRow.add(city)
+            currentWidth += cityWidth + spacing
+        } else {
+            CityRow(currentRow, Status)
+            currentRow = mutableListOf(city)
+            currentWidth = cityWidth + spacing
         }
     }
+
+    if (currentRow.isNotEmpty()) {
+        CityRow(currentRow, Status)
+    }
+
+
 }
 
 
 @Composable
-fun CityRow(cities: List<String>) {
+fun TextView(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleSmall,
+        modifier = Modifier.padding(bottom = 16.dp)
+    )
+}
+
+@Composable
+fun CityRow(cities: List<String>, Status: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -71,21 +87,28 @@ fun CityRow(cities: List<String>) {
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         cities.forEach { city ->
-            CityCard(city)
+            CityCard(city, Status)
         }
+
+
     }
 }
 
 @Composable
-fun CityCard(cityName: String) {
+fun CityCard(cityName: String, status: String) {
     Card(
         modifier = Modifier
             .height(50.dp)
     ) {
+
+        val backgroundColor = if (status.equals("1")) Color.White else md_theme_light_errorContainer
+        val borderColor = if (status.equals("1")) md_theme_light_primary else md_theme_light_errorContainer
+
         Box(
+
             modifier = Modifier
-                .background(Color.White, RoundedCornerShape(8.dp))
-                .border(BorderStroke(2.dp, md_theme_light_primary), RoundedCornerShape(8.dp)),
+                .background(backgroundColor, RoundedCornerShape(8.dp))
+                .border(BorderStroke(2.dp, borderColor), RoundedCornerShape(8.dp)),
 
             ) {
             Text(
