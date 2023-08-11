@@ -53,6 +53,7 @@
     <string name="add_data_to_firebase">Add Data to Firebase</string>
     <string name="dommy_text_for_title">dommy text for title</string>
     <string name="title_activity_demo">Demo</string>
+    <string name="app_tagline">Better surveys with Jetpack Compose</string>
 
 
 </resources>
