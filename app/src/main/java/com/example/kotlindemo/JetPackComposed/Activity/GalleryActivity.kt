@@ -1,8 +1,7 @@
 package com.example.kotlindemo.JetPackComposed.Activity
 
-import android.content.ContentValues.TAG
 import android.util.Log
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
@@ -14,26 +13,21 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import coil.compose.ImagePainter
-import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
-import coil.request.ImageRequest
+import androidx.navigation.NavController
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun GalleryActivity(imageList: List<String>) {
+fun GalleryActivity(navController: NavController, imageList: List<String>) {
 
 
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(5.dp)
     ) {
 
         Text(
@@ -41,15 +35,18 @@ fun GalleryActivity(imageList: List<String>) {
             style = MaterialTheme.typography.titleSmall,
             modifier = Modifier.padding(bottom = 16.dp)
         )
-
+//        Modifier.height(16.dp)
         LazyVerticalGrid(
-//            GridCells.Fixed(3),
-//            contentPadding = PaddingValues(8.dp),
-            columns = GridCells.Adaptive(minSize = 120.dp)
+            GridCells.Fixed(3),
+            contentPadding = PaddingValues(1.dp),
+
+//            columns = GridCells.Adaptive(minSize = 120.dp)
         ) {
 
             items(imageList.size) { image ->
-                ImageItem(imageList[image])
+                ImageItem(imageList[image]){
+                    navController.navigate("imageDetail/$image")
+                }
             }
 
         }
@@ -59,14 +56,21 @@ fun GalleryActivity(imageList: List<String>) {
 
 
 @Composable
-fun ImageItem(imageUrl: String) {
+fun ImageItem(imageUrl: String, onItemClick: () -> Unit) {
     Log.e("hhhhh", "ImageItem: " + imageUrl)
     GlideImage(
         imageModel = { imageUrl }, // loading a network image using an URL.
         imageOptions = ImageOptions(
             contentScale = ContentScale.Crop,
-            alignment = Alignment.Center
-        )
+//            alignment = Alignment.Center
+
+        ),
+        modifier = Modifier
+            .aspectRatio(1f)
+            .fillMaxWidth()
+            .padding(2.dp)
+            .clickable { onItemClick() },
+
     )
 
 }

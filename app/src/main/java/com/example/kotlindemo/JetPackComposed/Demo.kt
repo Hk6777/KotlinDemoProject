@@ -28,6 +28,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.kotlindemo.JetPackComposed.Activity.CityList
+import com.example.kotlindemo.JetPackComposed.Activity.FullScreenImageGallery
 import com.example.kotlindemo.JetPackComposed.Activity.GalleryActivity
 import com.example.kotlindemo.JetPackComposed.Activity.ListviewScreen
 import com.example.kotlindemo.JetPackComposed.ui.theme.KotlinDemoTheme
@@ -166,16 +167,25 @@ fun App() {
             )
             CityList(cities)
         }
+        var imageUrls = listOf(
+            "https://harshil.kachhadiya.info/img/portfolio/1.jpg",
+            "https://harshil.kachhadiya.info/img/portfolio/2.jpg",
+            "https://harshil.kachhadiya.info/img/portfolio/3.jpg",
+            "https://harshil.kachhadiya.info/img/portfolio/4.jpg",
+            "https://harshil.kachhadiya.info/img/portfolio/5.jpg",
+            // Add more image URLs here
+        )
         composable("ExapleList/Galeery App") {
-            val imageUrls = listOf(
-                "https://harshil.kachhadiya.info/img/portfolio/1.jpg",
-                "https://harshil.kachhadiya.info/img/portfolio/2.jpg",
-                "https://harshil.kachhadiya.info/img/portfolio/3.jpg",
-                "https://harshil.kachhadiya.info/img/portfolio/4.jpg",
-                "https://harshil.kachhadiya.info/img/portfolio/5.jpg",
-                // Add more image URLs here
-            )
-            GalleryActivity(imageUrls) }
+
+            GalleryActivity(navController, imageUrls)
+        }
+        composable("imageDetail/{imageResId}") { backStackEntry ->
+            val imageResId = backStackEntry.arguments?.getString("imageResId")?.toIntOrNull()
+            imageResId?.let {
+
+                FullScreenImageGallery(imageList = imageUrls, navController = navController)
+            }
+        }
     }
 }
 
