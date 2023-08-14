@@ -31,6 +31,7 @@ import com.example.kotlindemo.JetPackComposed.Activity.CityList
 import com.example.kotlindemo.JetPackComposed.Activity.FullScreenImageGallery
 import com.example.kotlindemo.JetPackComposed.Activity.GalleryActivity
 import com.example.kotlindemo.JetPackComposed.Activity.ListviewScreen
+import com.example.kotlindemo.JetPackComposed.Activity.TextCustomization
 import com.example.kotlindemo.JetPackComposed.ui.theme.KotlinDemoTheme
 import com.example.kotlindemo.JetPackComposed.ui.theme.md_theme_light_errorContainer
 
@@ -119,14 +120,14 @@ fun ClassList(cityName: String) {
 
             modifier = Modifier
                 .fillMaxWidth()
-                .background(md_theme_light_errorContainer, RoundedCornerShape(8.dp)),
+                .background(MaterialTheme.colorScheme.primary, RoundedCornerShape(8.dp)),
 
             ) {
             Text(
                 text = cityName,
                 style = MaterialTheme.typography.titleSmall,
                 modifier = Modifier.padding(16.dp),
-                color = Color.Black
+                color = MaterialTheme.colorScheme.onPrimary,
             )
         }
     }
@@ -143,6 +144,7 @@ fun App() {
                 "ListView & Gridview Demo",
                 "Citylist Coustom Grid",
                 "Galeery App",
+                "Text Customization",
             )
             FirstScreen(
                 navController,
@@ -183,8 +185,16 @@ fun App() {
             val imageResId = backStackEntry.arguments?.getString("imageResId")?.toIntOrNull()
             imageResId?.let {
 
-                FullScreenImageGallery(imageList = imageUrls,imageResId, navController = navController)
+                FullScreenImageGallery(
+                    imageList = imageUrls,
+                    imageResId,
+                    navController = navController
+                )
             }
+        }
+        composable("ExapleList/Text Customization") {
+
+            TextCustomization()
         }
     }
 }

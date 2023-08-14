@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
@@ -63,8 +65,9 @@ fun FullScreenImageGallery(
                 navController.popBackStack()
             },
             modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.TopStart)
+                .height(50.dp)
+                .width(50.dp)
+                .align(Alignment.TopStart),
         ) {
             Icon(
                 imageVector = Icons.Default.ArrowBack,
@@ -76,6 +79,8 @@ fun FullScreenImageGallery(
     }
 
 }
+
+
 
 
 @Composable
