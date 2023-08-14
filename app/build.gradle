@@ -124,6 +124,8 @@ dependencies {
 
     //viewpager
     implementation "com.google.accompanist:accompanist-pager:0.18.0"
+    //zoomable image
+    implementation("com.mxalbert.zoomable:zoomable:1.6.1")
 
 
 }

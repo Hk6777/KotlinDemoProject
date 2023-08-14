@@ -183,7 +183,7 @@ fun App() {
             val imageResId = backStackEntry.arguments?.getString("imageResId")?.toIntOrNull()
             imageResId?.let {
 
-                FullScreenImageGallery(imageList = imageUrls, navController = navController)
+                FullScreenImageGallery(imageList = imageUrls,imageResId, navController = navController)
             }
         }
     }
