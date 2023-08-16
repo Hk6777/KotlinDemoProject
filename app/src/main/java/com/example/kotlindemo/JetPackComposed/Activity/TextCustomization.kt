@@ -55,6 +55,8 @@ fun TextCustomization() {
             description = stringResource(id = R.string.dummy_text)
         )
 
+        EditText()
+
 
     }
 }
