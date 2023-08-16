@@ -22,7 +22,8 @@ import com.example.kotlindemo.R
 @Preview
 @Composable
 fun EditText() {
-    var text by remember { mutableStateOf(TextFieldValue()) }
+    var email by remember { mutableStateOf(TextFieldValue()) }
+    var password by remember { mutableStateOf(TextFieldValue()) }
 
     Column(
         modifier = Modifier
@@ -30,11 +31,12 @@ fun EditText() {
             .padding(16.dp)
     ) {
         OutlinedTextField(
-            value = text,
+            value = email,
             onValueChange = { newText ->
-                text = newText
+                email = newText
             },
             label = { Text("Username") },
+            isError = !isValidEmail(email),
             modifier = Modifier
                 .fillMaxWidth(),
             singleLine = true,
@@ -50,17 +52,18 @@ fun EditText() {
         Spacer(modifier = Modifier.height(16.dp))
 
         TextField(
-            value = text,
+            value = password,
             onValueChange = { newText ->
-                text = newText
+                password = newText
             },
-            label = { Text("Username") },
+            label = { Text("Password") },
+            isError = !isValidPassword(password),
             modifier = Modifier
                 .fillMaxWidth(),
             singleLine = true,
             leadingIcon = {
                 Icon(
-                    painter = painterResource(id = R.drawable.baseline_email_24),
+                    painter = painterResource(id = R.drawable.baseline_password_24),
                     contentDescription = null,
                     tint = Color.Gray
                 )
@@ -70,7 +73,18 @@ fun EditText() {
 //        Text("Entered text: $text")
     }
 
+}
 
+@Composable
+fun isValidEmail(email: TextFieldValue): Boolean {
+    val emailRegex = Regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
+    return emailRegex.matches(email.text)
+}
+
+// Password validation
+@Composable
+private fun isValidPassword(password: TextFieldValue): Boolean {
+    return password.text.length >= 6 // Example: Password must be at least 6 characters
 }
 
 
