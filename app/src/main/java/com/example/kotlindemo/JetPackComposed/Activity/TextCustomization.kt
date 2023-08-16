@@ -42,9 +42,18 @@ fun TextCustomization() {
         Text(text = "Selction and DisSlection Text", color = MaterialTheme.colorScheme.primary)
         CoustomText4()
 
-        Text(text = "Super and Sub Text", color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(0.dp,10.dp,0.dp,0.dp))
+        Text(
+            text = "Super and Sub Text",
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(0.dp, 10.dp, 0.dp, 0.dp)
+        )
 
         SuperScriptText(normalText = "Harshil", superText = "2")
+
+        ExpandableCard(
+            title = stringResource(id = R.string.app_name),
+            description = stringResource(id = R.string.dummy_text)
+        )
 
 
     }
@@ -161,7 +170,11 @@ fun DefaultPreview() {
             Text(text = "Selction and DisSlection Text", color = MaterialTheme.colorScheme.primary)
             CoustomText4()
 
-            Text(text = "Super and Sub Text", color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(0.dp,10.dp,0.dp,0.dp))
+            Text(
+                text = "Super and Sub Text",
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(0.dp, 10.dp, 0.dp, 0.dp)
+            )
 
             SuperScriptText(normalText = "Harshil", superText = "2")
 

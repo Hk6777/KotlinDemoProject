@@ -54,6 +54,8 @@
     <string name="dommy_text_for_title">dommy text for title</string>
     <string name="title_activity_demo">Demo</string>
     <string name="app_tagline">Better surveys with Jetpack Compose</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis urna non nisl laoreet, eu sagittis sapien posuere. Nulla facilisi. In vestibulum congue massa, nec hendrerit tortor. Phasellus bibendum fringilla quam, eu auctor urna venenatis at. Integer fringilla venenatis libero vel tempus. Proin condimentum, odio non tempor euismod, ante erat cursus justo, nec volutpat erat arcu eget libero. Ut dignissim luctus turpis, at sodales nunc posuere nec.
+</string>
 
 
 </resources>
