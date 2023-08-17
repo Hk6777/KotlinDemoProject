@@ -14,11 +14,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -45,12 +48,15 @@ import com.example.kotlindemo.JetPackComposed.ui.theme.md_theme_light_background
 import com.example.kotlindemo.R
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 fun LoginScreen() {
 
     var email by remember { mutableStateOf(TextFieldValue()) }
     var password by remember { mutableStateOf(TextFieldValue()) }
+//    var showerror by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -76,9 +82,14 @@ fun LoginScreen() {
             value = email,
             onValueChange = { newText ->
                 email = newText
+//                showerror = false
             },
             label = { Text("Username") },
             isError = !isValidEmail(email),
+//            colors = OutlinedTextFieldDefaults.colors(
+//                focusedBorderColor = if (showerror && !isValidEmail(email)) Color.Red else Color.Gray,
+//                unfocusedBorderColor = if (showerror && !isValidEmail(email)) Color.Red else Color.Gray,
+//            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(0.dp, 20.dp, 0.dp, 0.dp),
@@ -98,9 +109,14 @@ fun LoginScreen() {
             value = password,
             onValueChange = { newText ->
                 password = newText
+//                showerror = false
             },
             label = { Text("Password") },
-            isError = !isValidPassword(password),
+            isError =  !isValidPassword(password),
+//            colors = OutlinedTextFieldDefaults.colors(
+//                focusedBorderColor = if (showerror && !isValidPassword(password)) Color.Red else Color.Gray,
+//                unfocusedBorderColor = if (showerror && !isValidPassword(password)) Color.Red else Color.Gray,
+//            ),
             modifier = Modifier
                 .fillMaxWidth(),
             singleLine = true,
@@ -128,7 +144,14 @@ fun LoginScreen() {
         )
 
         Button(
-            onClick = { /* Handle button click here */ },
+            onClick = {
+//                if (isValidEmail(email) ) {
+//                    // Perform login action
+//                } else {
+//                    showerror = true
+//                }
+            },
+//            enabled = isValidEmail(email) && isValidPassword(password),
             colors = ButtonDefaults.buttonColors(facebook_color),
             shape = MaterialTheme.shapes.small,
             modifier = Modifier
@@ -161,7 +184,9 @@ fun LoginScreen() {
             Image(
                 painter = painterResource(id = R.drawable.search),
                 contentDescription = "google icon",
-                modifier = Modifier.size(30.dp).padding(5.dp)
+                modifier = Modifier
+                    .size(30.dp)
+                    .padding(5.dp)
             )
             Spacer(modifier = Modifier.width(20.dp))
             Text(text = "Google Login", color = Color.Black, fontSize = 20.sp)
@@ -173,4 +198,6 @@ fun LoginScreen() {
 
 
 }
+
+
 
