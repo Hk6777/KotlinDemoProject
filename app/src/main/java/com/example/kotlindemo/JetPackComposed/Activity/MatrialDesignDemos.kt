@@ -87,6 +87,37 @@ fun MatrialDesignDemos() {
             }
         )
 
+        //Bedge
+        Text(text = "3. Bedge")
+        NavigationBar {
+            NavigationBarItem(
+                icon = {
+                    BadgedBox(
+                        badge = {
+                            Badge {
+                                val badgeNumber = "2"
+                                Text(
+                                    badgeNumber,
+                                    modifier = Modifier.semantics {
+                                        contentDescription = "$badgeNumber new notifications"
+                                    }
+                                )
+                            }
+                        }) {
+                        Icon(
+                            Icons.Filled.Star,
+                            contentDescription = "Favorite"
+                        )
+                    }
+                },
+                selected = false,
+                onClick = {}
+            )
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+
 
 
     }
