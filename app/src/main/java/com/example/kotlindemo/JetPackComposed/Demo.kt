@@ -55,34 +55,7 @@ fun FirstScreen(navController: NavController, exapleList: List<String>) {
             .padding(16.dp)
             .fillMaxSize()
     ) {
-//        Button(
-//            onClick = {
-//                // Navigate to the second screen when the button is clicked
-//                navController.navigate("ListviewScreen")
-//            },
-//            modifier = Modifier
-//                .padding(8.dp)
-//                .fillMaxWidth(),
-//            colors = ButtonDefaults.buttonColors(md_theme_light_surfaceTint),
-//            shape = Shapes.extraSmall
-//
-//        ) {
-//            Text("Listview & GridView Demo")
-//        }
-//        Button(
-//            onClick = {
-//                // Navigate to the second screen when the button is clicked
-//                navController.navigate("citylist")
-//            },
-//            modifier = Modifier
-//                .padding(8.dp)
-//                .fillMaxWidth(),
-//            colors = ButtonDefaults.buttonColors(md_theme_light_surfaceTint),
-//            shape = Shapes.extraSmall
-//
-//        ) {
-//            Text("Citylist")
-//        }
+
 
         LazyColumn {
             items(exapleList.size) { index ->
