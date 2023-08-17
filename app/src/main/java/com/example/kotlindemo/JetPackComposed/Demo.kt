@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kotlindemo.JetPackComposed.Activity.BottomSheetDialogView
 import com.example.kotlindemo.JetPackComposed.Activity.CityList
 import com.example.kotlindemo.JetPackComposed.Activity.FullScreenImageGallery
 import com.example.kotlindemo.JetPackComposed.Activity.GalleryActivity
@@ -121,7 +122,8 @@ fun App() {
                 "Text Customization",
                 "Login Activity",
                 "Login Page2",
-                "Matrial Design Demo"
+                "Matrial Design Demo",
+                "BottomSheetDialogView"
             )
             FirstScreen(
                 navController,
@@ -184,6 +186,10 @@ fun App() {
 
         composable("ExapleList/Matrial Design Demo") {
             MatrialDesignDemos()
+        }
+
+        composable("ExapleList/BottomSheetDialogView") {
+            BottomSheetDialogView()
         }
     }
 }

@@ -1,6 +1,6 @@
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -11,7 +11,6 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.AlertDialog
@@ -44,6 +43,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.kotlindemo.JetPackComposed.Activity.BottomSheet
 import com.example.kotlindemo.JetPackComposed.ui.theme.Shapes
 import com.example.kotlindemo.JetPackComposed.ui.theme.md_theme_light_surfaceTint
 
@@ -55,6 +55,7 @@ fun MatrialDesignDemos() {
 
     Column(modifier = Modifier.fillMaxSize()) {
         var showMessage by remember { mutableStateOf(false) }
+        var showDialog by remember { mutableStateOf(false) }
         Button(
             onClick = {
                 showMessage = true
@@ -72,80 +73,229 @@ fun MatrialDesignDemos() {
             AlertDialogComponent(onDismiss = { showMessage = false })
         }
 
+
         //Assistenship
-        Text(text = "2. Assistchip")
-        AssistChip(
-            onClick = { /* Do something! */ },
-            label = { Text("Assist Chip") },
-            modifier = Modifier.align(CenterHorizontally),
-            leadingIcon = {
-                Icon(
-                    Icons.Filled.Search,
-                    contentDescription = "Localized description",
-                    Modifier.size(AssistChipDefaults.IconSize)
-                )
-            }
-        )
+        AssistshipView()
 
         //Bedge
-        Text(text = "3. Bedge")
-        NavigationBar {
-            NavigationBarItem(
-                icon = {
-                    BadgedBox(
-                        badge = {
-                            Badge {
-                                val badgeNumber = "2"
-                                Text(
-                                    badgeNumber,
-                                    modifier = Modifier.semantics {
-                                        contentDescription = "$badgeNumber new notifications"
-                                    }
-                                )
-                            }
-                        }) {
-                        Icon(
-                            Icons.Filled.Star,
-                            contentDescription = "Favorite"
-                        )
-                    }
-                },
-                selected = false,
-                onClick = {}
-            )
+        BedgeView()
+
+        Spacer(modifier = Modifier.height(10.dp))
+//        Navigation
+        NavigationView()
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        var showSheet by remember { mutableStateOf(false) }
+
+        if (showSheet) {
+            BottomSheet() {
+                showSheet = false
+            }
         }
 
-//        Spacer(modifier = Modifier.height(10.dp))
-
-
-        //Navigation
-        BottomAppBar(
-            actions = {
-                IconButton(onClick = { /* doSomething() */ }) {
-                    Icon(Icons.Filled.Check, contentDescription = "Localized description")
-                }
-                IconButton(onClick = { /* doSomething() */ }) {
-                    Icon(
-                        Icons.Filled.Edit,
-                        contentDescription = "Localized description",
-                    )
-                }
-            },
-            floatingActionButton = {
-                FloatingActionButton(
-                    onClick = { /* do something */ },
-                    containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
-                    elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
-                ) {
-                    Icon(Icons.Filled.Add, "Localized description")
-                }
-            }
-        )
-
+        Button(onClick = {
+            showSheet = true
+        }) {
+            Text(text = "Show BottomSheet")
+        }
 
     }
 
 
+}
+
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//fun BottomshitView(onDismiss: () -> Unit) {
+//
+//    BottomSheetScaffold(
+//        sheetPeekHeight = 128.dp,
+//        sheetContent = {
+//            Box(
+//                Modifier
+//                    .fillMaxWidth()
+//                    .height(128.dp),
+//                contentAlignment = Alignment.Center
+//            ) {
+//                Text("Swipe up to expand sheet")
+//            }
+//            Column(
+//                Modifier
+//                    .fillMaxWidth()
+//                    .padding(64.dp),
+//                horizontalAlignment = Alignment.CenterHorizontally
+//            ) {
+//                Text("Sheet content")
+//                Spacer(Modifier.height(20.dp))
+//                Button(
+//                    onClick = {
+//                        onDismiss()
+//                    }
+//                ) {
+//                    Text( "Click to collapse sheet" )
+//                }
+//            }
+//        }) {
+//        Column(
+//            Modifier.fillMaxSize(),
+//            verticalArrangement = Arrangement.Center,
+//            horizontalAlignment = Alignment.CenterHorizontally
+//        ) {
+//            Text("Scaffold Content")
+//        }
+////            innerPadding ->
+////        Box(Modifier.padding(innerPadding)) {
+////            Text("Scaffold Content")
+////        }
+//    }
+//
+//
+//}
+
+@Composable
+fun BottomSheetContent(onDismiss: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Bottom Sheet Content")
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(
+            onClick = onDismiss
+        ) {
+            Text("Dismiss Bottom Sheet")
+        }
+    }
+}
+
+@Composable
+fun AssistshipView() {
+    Column(modifier = Modifier.fillMaxWidth()) {
+
+
+        Text(text = "2. Assistchip")
+        AssistChip(
+            onClick = { /*TODO*/ },
+            label = { Text(text = "Assist Chip") },
+            leadingIcon = {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "",
+                    Modifier.size(AssistChipDefaults.IconSize)
+                )
+            },
+            modifier = Modifier.align(CenterHorizontally)
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun BedgeView() {
+    Text(text = "3. Bedge")
+    NavigationBar {
+        NavigationBarItem(
+            selected = false,
+            onClick = { /*TODO*/ },
+            icon = {
+                BadgedBox(
+                    badge = {
+                        Badge {
+                            val badgeNumber = "8"
+                            Text(badgeNumber,
+                                modifier = Modifier.semantics {
+                                    contentDescription = "$badgeNumber new notifications"
+                                })
+
+                        }
+
+                    }) {
+                    Icon(
+                        Icons.Filled.Star,
+                        contentDescription = ""
+                    )
+
+                }
+            }
+        )
+
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun NavigationView() {
+    BottomAppBar(
+        actions = {
+            IconButton(onClick = { /* doSomething() */ }) {
+                Icon(Icons.Filled.Check, contentDescription = "Localized description")
+            }
+            IconButton(onClick = { /* doSomething() */ }) {
+
+
+                Icon(
+                    Icons.Filled.Edit,
+                    contentDescription = "Localized description",
+                )
+            }
+            IconButton(onClick = { /* doSomething() */ }) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "Localized description",
+                )
+            }
+            IconButton(onClick = { /* doSomething() */ }) {
+                Icon(
+                    Icons.Filled.Settings,
+                    contentDescription = "Localized description",
+                )
+            }
+
+            IconButton(onClick = { /* doSomething() */ }) {
+                Icon(
+                    Icons.Filled.Favorite,
+                    contentDescription = "Localized description",
+                )
+            }
+            NavigationBarItem(
+                selected = false,
+                onClick = { /*TODO*/ },
+                icon = {
+                    BadgedBox(
+                        badge = {
+                            Badge {
+                                val badgeNumber = "8"
+                                Text(badgeNumber,
+                                    modifier = Modifier.semantics {
+                                        contentDescription = "$badgeNumber new notifications"
+                                    })
+
+                            }
+
+                        }) {
+                        Icon(
+                            Icons.Filled.Star,
+                            contentDescription = ""
+                        )
+
+                    }
+                }
+            )
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { /* do something */ },
+                containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
+                elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
+            ) {
+                Icon(Icons.Filled.Add, "Localized description")
+            }
+        }
+    )
 }
 
 @Composable
