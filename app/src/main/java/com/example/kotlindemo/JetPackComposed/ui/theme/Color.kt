@@ -61,3 +61,5 @@ val md_theme_dark_shadow = Color(0xFF000000)
 val md_theme_dark_surfaceTint = Color(0xFFD9B9FF)
 
 val seed = Color(0xFF8100EF)
+val facebook_color = Color(0xFF0164FF)
+val gray_500 = Color(0xFFF1F5F6)

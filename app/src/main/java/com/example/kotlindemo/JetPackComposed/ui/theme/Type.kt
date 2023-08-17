@@ -98,8 +98,8 @@ val Typography = Typography(
     // Label Large - Montserrat 14/20 . 0.1px
     labelLarge = TextStyle(
         fontFamily = MontserratFontFamily,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold,
+        fontSize = 40.sp,
         lineHeight = 20.sp,
         letterSpacing = 0.1.sp,
     ),

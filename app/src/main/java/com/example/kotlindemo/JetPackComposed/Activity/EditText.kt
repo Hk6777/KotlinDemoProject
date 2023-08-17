@@ -83,7 +83,7 @@ fun isValidEmail(email: TextFieldValue): Boolean {
 
 // Password validation
 @Composable
-private fun isValidPassword(password: TextFieldValue): Boolean {
+fun isValidPassword(password: TextFieldValue): Boolean {
     return password.text.length >= 6 // Example: Password must be at least 6 characters
 }
 
