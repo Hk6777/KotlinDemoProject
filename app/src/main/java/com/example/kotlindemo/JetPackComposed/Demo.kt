@@ -31,6 +31,7 @@ import com.example.kotlindemo.JetPackComposed.Activity.CityList
 import com.example.kotlindemo.JetPackComposed.Activity.FullScreenImageGallery
 import com.example.kotlindemo.JetPackComposed.Activity.GalleryActivity
 import com.example.kotlindemo.JetPackComposed.Activity.ListviewScreen
+import com.example.kotlindemo.JetPackComposed.Activity.LoginPage2
 import com.example.kotlindemo.JetPackComposed.Activity.LoginScreen
 import com.example.kotlindemo.JetPackComposed.Activity.TextCustomization
 import com.example.kotlindemo.JetPackComposed.ui.theme.KotlinDemoTheme
@@ -146,7 +147,8 @@ fun App() {
                 "Citylist Coustom Grid",
                 "Galeery App",
                 "Text Customization",
-                "Login Activity"
+                "Login Activity",
+                "Login Page2"
             )
             FirstScreen(
                 navController,
@@ -201,6 +203,10 @@ fun App() {
         composable("ExapleList/Login Activity") {
 
             LoginScreen()
+        }
+        composable("ExapleList/Login Page2") {
+
+            LoginPage2()
         }
     }
 }

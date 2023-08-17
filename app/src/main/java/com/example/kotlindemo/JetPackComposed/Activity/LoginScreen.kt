@@ -188,7 +188,7 @@ fun LoginScreen() {
                     .size(30.dp)
                     .padding(5.dp)
             )
-            Spacer(modifier = Modifier.width(20.dp))
+            Spacer(modifier = Modifier.width(8.dp))
             Text(text = "Google Login", color = Color.Black, fontSize = 20.sp)
 
 

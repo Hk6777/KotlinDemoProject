@@ -75,15 +75,26 @@ fun EditText() {
 
 }
 
+//@Composable
+//fun isValidEmail(email: TextFieldValue): Boolean {
+//    val emailRegex = Regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
+//    return emailRegex.matches(email.text)
+//}
+//
+//// Password validation
+//@Composable
+//fun isValidPassword(password: TextFieldValue): Boolean {
+//    return password.text.length >= 6 // Example: Password must be at least 6 characters
+//}
 @Composable
-fun isValidEmail(email: TextFieldValue): Boolean {
+public fun isValidEmail(email: TextFieldValue): Boolean {
     val emailRegex = Regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
     return emailRegex.matches(email.text)
 }
 
-// Password validation
 @Composable
-fun isValidPassword(password: TextFieldValue): Boolean {
+// Password validation
+public fun isValidPassword(password: TextFieldValue): Boolean {
     return password.text.length >= 6 // Example: Password must be at least 6 characters
 }
 
