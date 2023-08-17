@@ -1,5 +1,6 @@
 package com.example.kotlindemo.JetPackComposed
 
+import MatrialDesignDemos
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,7 +21,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -35,7 +35,6 @@ import com.example.kotlindemo.JetPackComposed.Activity.LoginPage2
 import com.example.kotlindemo.JetPackComposed.Activity.LoginScreen
 import com.example.kotlindemo.JetPackComposed.Activity.TextCustomization
 import com.example.kotlindemo.JetPackComposed.ui.theme.KotlinDemoTheme
-import com.example.kotlindemo.JetPackComposed.ui.theme.md_theme_light_errorContainer
 
 class Demo : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,7 +100,7 @@ fun ClassRow(exapleList: String, onItemClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp)
+            .padding(vertical = 5.dp)
             .clickable { onItemClick() },
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -142,13 +141,14 @@ fun App() {
 
     NavHost(navController, startDestination = "firstScreen") {
         composable("firstScreen") {
-            var exapleList = listOf(
+            val exapleList = listOf(
                 "ListView & Gridview Demo",
                 "Citylist Coustom Grid",
                 "Galeery App",
                 "Text Customization",
                 "Login Activity",
-                "Login Page2"
+                "Login Page2",
+                "Matrial Design Demo"
             )
             FirstScreen(
                 navController,
@@ -173,7 +173,7 @@ fun App() {
             )
             CityList(cities)
         }
-        var imageUrls = listOf(
+        val imageUrls = listOf(
             "https://harshil.kachhadiya.info/img/portfolio/1.jpg",
             "https://harshil.kachhadiya.info/img/portfolio/2.jpg",
             "https://harshil.kachhadiya.info/img/portfolio/3.jpg",
@@ -207,6 +207,10 @@ fun App() {
         composable("ExapleList/Login Page2") {
 
             LoginPage2()
+        }
+
+        composable("ExapleList/Matrial Design Demo") {
+            MatrialDesignDemos()
         }
     }
 }
