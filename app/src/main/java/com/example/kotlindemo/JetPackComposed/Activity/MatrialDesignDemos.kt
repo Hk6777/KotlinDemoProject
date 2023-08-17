@@ -115,9 +115,32 @@ fun MatrialDesignDemos() {
             )
         }
 
-        Spacer(modifier = Modifier.height(10.dp))
+//        Spacer(modifier = Modifier.height(10.dp))
 
 
+        //Navigation
+        BottomAppBar(
+            actions = {
+                IconButton(onClick = { /* doSomething() */ }) {
+                    Icon(Icons.Filled.Check, contentDescription = "Localized description")
+                }
+                IconButton(onClick = { /* doSomething() */ }) {
+                    Icon(
+                        Icons.Filled.Edit,
+                        contentDescription = "Localized description",
+                    )
+                }
+            },
+            floatingActionButton = {
+                FloatingActionButton(
+                    onClick = { /* do something */ },
+                    containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
+                    elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
+                ) {
+                    Icon(Icons.Filled.Add, "Localized description")
+                }
+            }
+        )
 
 
     }
