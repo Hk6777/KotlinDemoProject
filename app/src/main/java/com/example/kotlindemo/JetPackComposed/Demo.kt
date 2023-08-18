@@ -28,12 +28,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.kotlindemo.JetPackComposed.Activity.BottomSheetDialogView
+import com.example.kotlindemo.JetPackComposed.Activity.CheckBoxView
 import com.example.kotlindemo.JetPackComposed.Activity.CityList
 import com.example.kotlindemo.JetPackComposed.Activity.FullScreenImageGallery
 import com.example.kotlindemo.JetPackComposed.Activity.GalleryActivity
 import com.example.kotlindemo.JetPackComposed.Activity.ListviewScreen
 import com.example.kotlindemo.JetPackComposed.Activity.LoginPage2
 import com.example.kotlindemo.JetPackComposed.Activity.LoginScreen
+import com.example.kotlindemo.JetPackComposed.Activity.MatrialDesignDemos2
 import com.example.kotlindemo.JetPackComposed.Activity.TextCustomization
 import com.example.kotlindemo.JetPackComposed.ui.theme.KotlinDemoTheme
 
@@ -122,7 +124,9 @@ fun App() {
                 "Text Customization",
                 "Login Activity",
                 "Login Page2",
+                "CheckBox",
                 "Matrial Design Demo",
+                "Matrial Design Demo2",
                 "BottomSheetDialogView"
             )
             FirstScreen(
@@ -186,6 +190,12 @@ fun App() {
 
         composable("ExapleList/Matrial Design Demo") {
             MatrialDesignDemos()
+        }
+        composable("ExapleList/Matrial Design Demo2") {
+            MatrialDesignDemos2()
+        }
+        composable("ExapleList/CheckBox") {
+            CheckBoxView()
         }
 
         composable("ExapleList/BottomSheetDialogView") {

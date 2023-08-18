@@ -1,3 +1,4 @@
+import android.widget.ImageButton
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -10,12 +11,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.AlertDialog
@@ -28,13 +31,16 @@ import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -118,9 +124,53 @@ fun MatrialDesignDemos() {
 
         CardView1()
 
+        //CenterAlignedTopAppBar
+        TopBarView()
+
     }
 
 
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TopBarView() {
+    Scaffold(topBar = {
+        CenterAlignedTopAppBar(
+            title = {
+                Text(text = "Center Topbar", maxLines = 1, overflow = TextOverflow.Ellipsis)
+            },
+            navigationIcon = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Filled.Menu, contentDescription = "")
+                }
+
+            },
+            actions = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Filled.Favorite, contentDescription = "")
+                }
+            }
+        )
+    },
+    content = {
+            innerPadding ->
+        LazyColumn(
+            contentPadding = innerPadding,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+//            val list = (0..75).map { it.toString() }
+//            items(count = list.size) {
+//                Text(
+//                    text = list[it],
+//                    style = MaterialTheme.typography.bodyLarge,
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(horizontal = 16.dp)
+//                )
+//            }
+        }
+    })
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -168,7 +218,9 @@ fun CardView1() {
                         Icon(
                             Icons.Filled.Star,
                             contentDescription = "",
-                            Modifier.align(Alignment.End).size(15.dp)
+                            Modifier
+                                .align(Alignment.End)
+                                .size(15.dp)
                         )
                     }
 
@@ -179,7 +231,13 @@ fun CardView1() {
                 Text(text = "Title", fontSize = 25.sp)
                 Text(text = "SubTitle", fontSize = 15.sp)
                 Spacer(modifier = Modifier.size(10.dp))
-                Text(text = stringResource(R.string.dummy_text),Modifier.fillMaxWidth(), fontSize = 10.sp, maxLines = 3, lineHeight = 13.sp)
+                Text(
+                    text = stringResource(R.string.dummy_text),
+                    Modifier.fillMaxWidth(),
+                    fontSize = 10.sp,
+                    maxLines = 3,
+                    lineHeight = 13.sp
+                )
 
             }
 
