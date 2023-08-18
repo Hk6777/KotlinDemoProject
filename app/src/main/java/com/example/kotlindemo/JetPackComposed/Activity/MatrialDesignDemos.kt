@@ -1,3 +1,4 @@
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -39,6 +40,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
@@ -55,7 +57,6 @@ fun MatrialDesignDemos() {
 
     Column(modifier = Modifier.fillMaxSize()) {
         var showMessage by remember { mutableStateOf(false) }
-        var showDialog by remember { mutableStateOf(false) }
         Button(
             onClick = {
                 showMessage = true
@@ -100,10 +101,33 @@ fun MatrialDesignDemos() {
             Text(text = "Show BottomSheet")
         }
 
+//Costom Button
+        Button(
+            onClick = { /*TODO*/ },
+            contentPadding = ButtonDefaults.ButtonWithIconContentPadding,
+
+            elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 20.dp),
+            modifier = Modifier
+                .align(CenterHorizontally),
+            border = BorderStroke(2.dp, color = Color.LightGray)
+
+        ) {
+
+            Icon(
+                Icons.Filled.Favorite,
+                contentDescription = "",
+                modifier = Modifier.size(ButtonDefaults.IconSize)
+            )
+            Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
+            Text(text = "Like")
+        }
+
+
     }
 
 
 }
+
 
 //@OptIn(ExperimentalMaterial3Api::class)
 //@Composable
