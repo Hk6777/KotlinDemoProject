@@ -1,5 +1,6 @@
 package com.example.kotlindemo.JetPackComposed.Activity
 
+import android.os.Build
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,6 +17,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerState
+import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedButton
@@ -38,8 +40,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import java.text.SimpleDateFormat
+import java.time.DayOfWeek
+import java.time.Instant
+import java.time.ZoneId
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
@@ -78,9 +85,25 @@ fun MatrialDesignDemos2() {
 
         Text(text = "Selected date timestamp : ${formattedDate ?: "no selection"}")
 
+        //datepoicker 2
+        datepicker2()
+
 
     }
 
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun datepicker2() {
+
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        val state = rememberDatePickerState(initialDisplayMode = DisplayMode.Input)
+        DatePicker(state = state, modifier = Modifier.padding(16.dp))
+        val formattedDate = state.selectedDateMillis?.let { TimestampToDateUsingDate(it) }
+
+        Text("Entered date timestamp: ${formattedDate ?: "no input"}")
+    }
 }
 
 
@@ -90,6 +113,7 @@ fun TimestampToDateUsingDate(timestamp: Long): String {
     val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
     return dateFormat.format(date)
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DatepickerDemo1(onDismiss: () -> Unit, datePickerState: DatePickerState) {
