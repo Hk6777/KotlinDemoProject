@@ -30,6 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.kotlindemo.JetPackComposed.Activity.BottomSheetDialogView
 import com.example.kotlindemo.JetPackComposed.Activity.CheckBoxView
 import com.example.kotlindemo.JetPackComposed.Activity.CityList
+import com.example.kotlindemo.JetPackComposed.Activity.DateRangePicker1
 import com.example.kotlindemo.JetPackComposed.Activity.FullScreenImageGallery
 import com.example.kotlindemo.JetPackComposed.Activity.GalleryActivity
 import com.example.kotlindemo.JetPackComposed.Activity.ListviewScreen
@@ -125,6 +126,7 @@ fun App() {
                 "Login Activity",
                 "Login Page2",
                 "CheckBox",
+                "DateRangePicker1",
                 "Matrial Design Demo",
                 "Matrial Design Demo2",
                 "BottomSheetDialogView"
@@ -201,6 +203,11 @@ fun App() {
         composable("ExapleList/BottomSheetDialogView") {
             BottomSheetDialogView()
         }
+        composable("ExapleList/DateRangePicker1") {
+            DateRangePicker1()
+
+        }
+
     }
 }
 

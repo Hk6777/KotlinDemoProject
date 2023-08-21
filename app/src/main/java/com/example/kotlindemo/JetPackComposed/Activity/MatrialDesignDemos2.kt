@@ -110,7 +110,7 @@ fun datepicker2() {
 @Composable
 fun TimestampToDateUsingDate(timestamp: Long): String {
     val date = Date(timestamp)
-    val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    val dateFormat = SimpleDateFormat("MM-DD-yyyy", Locale.getDefault())
     return dateFormat.format(date)
 }
 
@@ -122,7 +122,7 @@ fun DatepickerDemo1(onDismiss: () -> Unit, datePickerState: DatePickerState) {
     Dialog(onDismissRequest = { onDismiss() }) {
         AlertDialog(
             onDismissRequest = { onDismiss() },
-            title = { Text("Select a Date") },
+
             confirmButton = {
                 Button(
                     onClick = { onDismiss() },
@@ -143,7 +143,7 @@ fun DatepickerDemo1(onDismiss: () -> Unit, datePickerState: DatePickerState) {
                 Column {
                     Box(
                         modifier = Modifier.fillMaxWidth(),
-                        contentAlignment = Alignment.Center
+//                        contentAlignment = Alignment.CenterStart
                     ) {
 
                         DatePicker(state = datePickerState)
