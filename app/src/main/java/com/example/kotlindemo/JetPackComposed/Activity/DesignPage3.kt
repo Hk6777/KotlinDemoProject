@@ -21,11 +21,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -83,8 +87,20 @@ fun DesignPage3() {
             )
 
         ) {}
+        RoundshapeIcon()
     }
 
+}
+
+@Composable
+fun RoundshapeIcon() {
+
+    FilledIconButton(
+        onClick = { /* doSomething() */ },
+        colors = IconButtonDefaults.filledIconButtonColors(grad_color2)
+    ) {
+        Icon(Icons.Outlined.Lock, contentDescription = "Localized description", tint = Color.White)
+    }
 }
 
 
