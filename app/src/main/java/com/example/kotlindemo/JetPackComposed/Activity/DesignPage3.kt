@@ -4,14 +4,17 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -27,23 +30,68 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
+import coil.transform.CircleCropTransformation
 import com.example.kotlindemo.R
+
 
 @Preview
 @Composable
 fun DesignPage3() {
 
-    Column(modifier = Modifier.fillMaxSize().padding(10.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
         GoogleButton(onClicked = { Unit })
+        Spacer(modifier = Modifier.size(10.dp))
+        ImageLoading()
 
     }
 
 }
 
+
+@Composable
+fun ImageLoading() {
+
+    Column {
+        Box(
+            modifier = Modifier
+                .width(150.dp)
+                .height(150.dp),
+        ) {
+            val painter =
+                rememberAsyncImagePainter(
+                    ImageRequest.Builder(LocalContext.current)
+                        .data(data = "https://avatars.githubusercontent.com/u/100499777?v=4")
+                        .apply(block = fun ImageRequest.Builder.() {
+                            placeholder(R.drawable.placeholder)
+                            error(R.drawable.errorplaceholder)
+                            crossfade(1000)
+                            transformations(
+
+                                CircleCropTransformation()
+                            )
+                        }).build(
+
+                        )
+                )
+            Image(painter = painter, contentDescription = "Logo Image")
+
+
+        }
+    }
+
+}
 
 @Composable
 fun GoogleButton(

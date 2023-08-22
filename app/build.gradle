@@ -130,6 +130,7 @@ dependencies {
     implementation "com.google.accompanist:accompanist-pager:0.18.0"
     //zoomable image
     implementation("com.mxalbert.zoomable:zoomable:1.6.1")
+    implementation("io.coil-kt:coil-compose:2.4.0")//image loader
 
 
 
