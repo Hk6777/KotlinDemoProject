@@ -12,14 +12,18 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,6 +36,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
@@ -54,7 +61,48 @@ fun DesignPage3() {
         GoogleButton(onClicked = { Unit })
         Spacer(modifier = Modifier.size(10.dp))
         ImageLoading()
+        Spacer(modifier = Modifier.size(15.dp))
+        EditPasswordVisibility()
 
+    }
+
+}
+
+@Composable
+fun EditPasswordVisibility() {
+
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        var password by remember { mutableStateOf("") }
+        var passwordVisiblity by remember { mutableStateOf(false) }
+
+        val icon = if (passwordVisiblity) {
+            painterResource(id = R.drawable.baseline_visibility_24)
+        } else {
+            painterResource(id = R.drawable.baseline_visibility_off_24)
+        }
+
+        OutlinedTextField(
+            value = password,
+            onValueChange = { password = it },
+            placeholder = { Text(text = "Password") },
+            label = { Text(text = "Password") },
+            trailingIcon = {
+                IconButton(onClick = { passwordVisiblity = !passwordVisiblity }) {
+                    Icon(
+                        painter = icon,
+                        contentDescription = "Visibility on"
+                    )
+                }
+            },
+            visualTransformation = if (passwordVisiblity) VisualTransformation.None else PasswordVisualTransformation(),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Password
+            )
+        )
     }
 
 }
