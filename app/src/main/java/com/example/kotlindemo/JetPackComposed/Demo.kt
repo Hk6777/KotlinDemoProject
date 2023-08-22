@@ -31,6 +31,7 @@ import com.example.kotlindemo.JetPackComposed.Activity.BottomSheetDialogView
 import com.example.kotlindemo.JetPackComposed.Activity.CheckBoxView
 import com.example.kotlindemo.JetPackComposed.Activity.CityList
 import com.example.kotlindemo.JetPackComposed.Activity.DateRangePicker1
+import com.example.kotlindemo.JetPackComposed.Activity.DesignPage3
 import com.example.kotlindemo.JetPackComposed.Activity.FullScreenImageGallery
 import com.example.kotlindemo.JetPackComposed.Activity.GalleryActivity
 import com.example.kotlindemo.JetPackComposed.Activity.ListviewScreen
@@ -129,6 +130,7 @@ fun App() {
                 "DateRangePicker1",
                 "Matrial Design Demo",
                 "Matrial Design Demo2",
+                "Matrial Design Demo3",
                 "BottomSheetDialogView"
             )
             FirstScreen(
@@ -205,6 +207,11 @@ fun App() {
         }
         composable("ExapleList/DateRangePicker1") {
             DateRangePicker1()
+
+        }
+
+        composable("ExapleList/Matrial Design Demo3") {
+            DesignPage3()
 
         }
 
