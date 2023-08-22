@@ -33,6 +33,7 @@ import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -45,6 +46,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -88,7 +91,20 @@ fun DesignPage3() {
 
         ) {}
         RoundshapeIcon()
+        SwichView()
     }
+
+}
+
+@Composable
+fun SwichView() {
+
+    var check by remember { mutableStateOf(true) }
+
+    Switch(
+        checked = check,
+        onCheckedChange = { check = it },
+        modifier = Modifier.semantics { contentDescription = "Demo" })
 
 }
 
