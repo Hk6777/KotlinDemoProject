@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kotlindemo.JetPackComposed.Activity.AlaramActivity
 import com.example.kotlindemo.JetPackComposed.Activity.BottomSheetDialogView
 import com.example.kotlindemo.JetPackComposed.Activity.CheckBoxView
 import com.example.kotlindemo.JetPackComposed.Activity.CityList
@@ -38,6 +39,7 @@ import com.example.kotlindemo.JetPackComposed.Activity.ListviewScreen
 import com.example.kotlindemo.JetPackComposed.Activity.LoginPage2
 import com.example.kotlindemo.JetPackComposed.Activity.LoginScreen
 import com.example.kotlindemo.JetPackComposed.Activity.MatrialDesignDemos2
+import com.example.kotlindemo.JetPackComposed.Activity.NavigationViewActivity
 import com.example.kotlindemo.JetPackComposed.Activity.TextCustomization
 import com.example.kotlindemo.JetPackComposed.ui.theme.KotlinDemoTheme
 
@@ -131,7 +133,8 @@ fun App() {
                 "Matrial Design Demo",
                 "Matrial Design Demo2",
                 "Matrial Design Demo3",
-                "BottomSheetDialogView"
+                "BottomSheetDialogView",
+                "AlaramActivity"
             )
             FirstScreen(
                 navController,
@@ -212,6 +215,10 @@ fun App() {
 
         composable("ExapleList/Matrial Design Demo3") {
             DesignPage3()
+
+        }
+        composable("ExapleList/AlaramActivity") {
+            AlaramActivity()
 
         }
 

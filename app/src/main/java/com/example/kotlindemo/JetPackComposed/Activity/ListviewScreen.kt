@@ -58,7 +58,7 @@ fun ListItem(text: String, cardColor: Color, textColor: Color) {
         ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.titleMedium,
             color = textColor,
             modifier = Modifier
                 .fillMaxWidth()
