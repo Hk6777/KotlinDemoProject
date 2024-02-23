@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import com.example.kotlindemo.Classes.AllClassesActivity
 import com.example.kotlindemo.Database.SqliteActivity
 import com.example.kotlindemo.Google.MapActivity
+import com.example.kotlindemo.JetPackComposed.JetpackDesign
 import com.example.kotlindemo.SampleApp.BlogappwithFirebase.Blog_MainActivity
 import com.example.kotlindemo.SampleApp.ProjectMainActivity
 import com.example.kotlindemo.databinding.ActivityMainBinding
@@ -52,6 +53,11 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnproject.setOnClickListener {
             val i = Intent(this, ProjectMainActivity::class.java)
+            startActivity(i)
+        }
+
+        binding.btnJetpackDesign.setOnClickListener {
+            val i = Intent(this, JetpackDesign::class.java)
             startActivity(i)
         }
 

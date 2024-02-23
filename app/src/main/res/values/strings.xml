@@ -45,6 +45,7 @@
     <string name="ok">ok</string>
     <string name="notification">Notification</string>
     <string name="miniprojects">miniProjects</string>
+    <string name="jetpackdesign">Jetpack Design pages</string>
     <string name="blog_app_with_firebase">Blog app with Firebase</string>
     <string name="add_employee_details">Add employee details</string>
     <string name="enter_auther_name">Enter Auther Name</string>

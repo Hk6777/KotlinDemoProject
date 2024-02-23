@@ -76,5 +76,15 @@
         android:textColor="@color/blue_800"
         android:text="@string/miniprojects" />
 
+    <Button
+        android:id="@+id/btn_jetpack_design"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/gray_500"
+        android:textColor="@color/blue_800"
+        android:text="@string/jetpackdesign" />
+
 
 </LinearLayout>

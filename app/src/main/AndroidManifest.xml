@@ -49,6 +49,7 @@
         <activity android:name=".SampleApp.BlogappwithFirebase.AddBlogActivity" />
         <activity android:name=".SampleApp.BlogappwithFirebase.BlogDetailActivity" />
         <activity android:name=".SampleApp.ProjectMainActivity" />
+        <activity android:name=".JetPackComposed.JetpackDesign" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
